@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-digitalekanaler-apprunner-internal
+  title: terraform-digitalekanaler-apprunner-internal
+  description: Terraform module for internal applications hosted on vylabs.io
+spec:
+  type: library
+  lifecycle: production
+  owner: team-dx
