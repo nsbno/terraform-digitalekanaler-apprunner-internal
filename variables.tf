@@ -75,7 +75,7 @@ variable "environment" {
   }
 }
 
-variable "custom_domain_name" {
+variable "custom_sub_domain" {
   description = "Use custom domain name instead of application_name in App Runner URL"
   type        = string
   default = ""
