@@ -15,7 +15,9 @@ terraform {
 
 locals {
   vylabs_zone = var.environment == "prod" ? "vylabs.io" : "${var.environment}.vylabs.io"
-  vylabs_domain_name = "${var.application_name}.${local.vylabs_zone}"
+  vylabs_default_domain_name = "${var.application_name}.${local.vylabs_zone}"
+  vylabs_custom_domain_name = var.custom_domain_name == "" ? "" : "${var.custom_domain_name}.${local.vylabs_zone}"
+  vylabs_domain_name = local.vylabs_custom_domain_name == "" ? local.vylabs_default_domain_name : local.vylabs_custom_domain_name
   docker_image = "${data.vy_artifact_version.ecr.store}/${data.vy_artifact_version.ecr.path}@${data.vy_artifact_version.ecr.version}"
 }
 
